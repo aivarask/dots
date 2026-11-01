@@ -1,0 +1,89 @@
+set dirfirst false
+set hidden
+# set icons
+set ifs "\n"
+# set info "size"
+set period 2
+set previewer previewer
+# set cleaner cleaner
+# set previewer pistol
+set ratios "1:2"
+set scrolloff 8
+set relativenumber
+
+set shell "bash"
+# set shellopts "-ey"
+
+# :read $shell %shell-pipe !shell-wait &shell-async
+# f fs fx
+map t
+map . set hidden!
+map D ${{ trash-put $fx }}
+map <delete> %rm -rfI $fx
+
+map <f-5> source-lfrc
+cmd source-lfrc ${{ lf -remote "send $id source ~/.config/lf/lfrc" }}
+
+map ++ set ratios 1:1:2
+map +w ${{ chmod +w $fx; lf -remote "send $id reload" }}
+map +x ${{ chmod +x $fx; lf -remote "send $id reload" }}
+map -- set ratios 1:2
+map -w ${{ chmod -w $fx; lf -remote "send $id reload" }}
+map -x ${{ chmod -x $fx; lf -remote "send $id reload" }}
+map \\t ${{ xdg-mime query filetype "$f" }}
+map \\m ${{ xdg-mime query filetype "$f" }}
+map A push $mkdir<space>
+map a push $touch<space>
+map E $EDITOR $fx
+map gc $lf -remote "send $id cd $XDG_CONFIG_HOME"
+map gd $lf -remote "send $id cd ~/Downloads"
+map of &firefox $fx
+
+cmd move-parent &{{
+    dironly="setlocal \"$(dirname -- "$PWD" | sed 's/\\/\\\\/g;s/"/\\"/g')\" dironly"
+    lf -remote "send $id :updir; $dironly true; $1; $dironly false; open"
+}}
+map J move-parent down
+map K move-parent up
+
+
+set filtermethod glob
+set searchmethod regex
+set incfilter
+map f filter
+cmap <enter> &{{
+    # select and open file
+    if [ "$lf_mode" = filter ]; then
+        lf -remote "send $id :cmd-enter; setfilter; open"
+    else
+        lf -remote "send $id cmd-enter"
+    fi
+}}
+cmap <a-n> &{{
+    # go to next file
+    if [ "$lf_mode" = filter ]; then
+        lf -remote "send $id down"
+    fi
+}}
+cmap <a-p> &{{
+    # go to previous file
+    if [ "$lf_mode" = filter ]; then
+        lf -remote "send $id up"
+    fi
+}}
+
+cmd extract ${{
+    case "$f" in
+        *.tar.bz2) tar xjf "$f" ;;
+        *.tar.gz)  tar xzf "$f" ;;
+        *.zip)     unzip "$f"   ;;
+        *.rar)     unrar x "$f" ;;
+    esac
+}}
+map x extract
+
+# Compress selection
+cmd compress ${{
+    tar czf "archive.tar.gz" $fx
+}}
+map X compress
