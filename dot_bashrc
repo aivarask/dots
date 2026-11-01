@@ -1,0 +1,18 @@
+[[ -r /usr/share/omarchy/default/bash/env-bootstrap ]] && source /usr/share/omarchy/default/bash/env-bootstrap
+
+[[ $- != *i* ]] && return
+
+source "$OMARCHY_PATH/default/bash/rc"
+
+PS0+='\e]133;C\e\\'
+
+command_done() {
+    printf '\e]133;D\e\\'
+}
+PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }command_done
+
+
+shopt -s autocd
+
+bind '"\e[15~":"exec bash\n"'
+
