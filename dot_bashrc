@@ -15,7 +15,10 @@ PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }command_done
 
 shopt -s autocd
 
-bind '"\e[15~":"exec bash\n"'
+# bind 'set match-hidden-files on'
+
+bind '"\es": "\C-asudo \C-e"'
+bind '"\e[15~":"exec bash; bind -f ~/.inputrc\n"'
 
 _cycle_command() {
   local command=${READLINE_LINE%%[[:space:]]*}
@@ -51,8 +54,10 @@ _tldr_below_command() {
 }
 bind -x '"\et":_tldr_below_command'
 
-
+bind '"\ea": alias-expand-line'
+bind '"\e,": alias-expand-line'
 # alias _chezmoi='chezmoi'
+alias _c='chezmoi'
 alias lg='lazygit'
 alias l='ls -a'
 alias ll='lt -a'
