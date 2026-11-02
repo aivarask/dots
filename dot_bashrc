@@ -3,6 +3,8 @@
 [[ $- != *i* ]] && return
 
 source "$OMARCHY_PATH/default/bash/rc"
+# [[ $- == *i* ]] && source /usr/share/blesh/ble.sh
+
 
 PS0+='\e]133;C\e\\'
 
@@ -49,7 +51,8 @@ _tldr_below_command() {
 }
 bind -x '"\et":_tldr_below_command'
 
-# alias
-alias lg=lazygit
-alias c=chezmoi
 
+# alias _chezmoi='chezmoi'
+alias lg='lazygit'
+alias l='ls -a'
+alias ll='lt -a'
