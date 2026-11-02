@@ -16,3 +16,4 @@ shopt -s autocd
 
 bind '"\e[15~":"exec bash\n"'
 
+alias lg=lazygit
