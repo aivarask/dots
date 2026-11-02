@@ -25,9 +25,8 @@ _cycle_command() {
   local rest=${READLINE_LINE#"$command"}
 
   case "$command" in
-    cat)  command=tree ;;
-    tree) command=cd ;;
-    cd)   command=cat ;;
+    which)  command=cat ;;
+    cat)  command=which ;;
     *) return ;;
   esac
 

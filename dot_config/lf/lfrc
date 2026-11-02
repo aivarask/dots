@@ -34,7 +34,7 @@ map \\t ${{ xdg-mime query filetype "$f" }}
 map \\m ${{ xdg-mime query filetype "$f" }}
 map A push $mkdir<space>
 map a push $touch<space>
-map E $EDITOR $fx
+map e ${{ nvim $fx }}
 map gc $lf -remote "send $id cd $XDG_CONFIG_HOME"
 map gd $lf -remote "send $id cd ~/Downloads"
 map of &firefox $fx
