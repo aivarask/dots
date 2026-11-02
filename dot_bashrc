@@ -11,10 +11,27 @@ command_done() {
 }
 PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }command_done
 
-
 shopt -s autocd
 
 bind '"\e[15~":"exec bash\n"'
 
+_cycle_command() {
+  local command=${READLINE_LINE%%[[:space:]]*}
+  local rest=${READLINE_LINE#"$command"}
+
+  case "$command" in
+    cat)  command=tree ;;
+    tree) command=cd ;;
+    cd)   command=cat ;;
+    *) return ;;
+  esac
+
+  READLINE_LINE="$command$rest"
+  READLINE_POINT=${#READLINE_LINE}
+}
+bind -x '"\ec":_cycle_command'
+
+# alias
 alias lg=lazygit
 alias c=chezmoi
+
