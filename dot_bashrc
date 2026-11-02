@@ -15,7 +15,7 @@ PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }command_done
 
 shopt -s autocd
 
-# bind 'set match-hidden-files on'
+bind 'set match-hidden-files on'
 
 bind '"\es": "\C-asudo \C-e"'
 bind '"\e[15~":"exec bash; bind -f ~/.inputrc\n"'

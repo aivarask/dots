@@ -21,3 +21,12 @@ vim.api.nvim_create_autocmd({ "BufWinLeave", "BufWinEnter" }, {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd({ "InsertLeave", "BufLeave" }, {
+  pattern = "*",
+  callback = function()
+    if vim.bo.modifiable and not vim.bo.readonly and vim.bo.buftype == "" then
+      vim.cmd("silent! write")
+    end
+  end,
+})
