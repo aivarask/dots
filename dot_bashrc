@@ -50,6 +50,6 @@ _tldr_below_command() {
 bind -x '"\et":_tldr_below_command'
 
 # alias
-alias lg=´lazygit´
-alias c=´chezmoi´
+alias lg=lazygit
+alias c=chezmoi
 
