@@ -1,22 +1,11 @@
 {
   "bar": {
-    "background": "glassy",
+    "background": "opaque",
     "layout": {
-      "center": [
-        {
-          "format": "dddd HH:mm",
-          "formatAlt": "d MMMM 'W'ww yyyy",
-          "id": "omarchy.clock",
-          "verticalFormat": "HH\n—\nmm"
-        },
-        {
-          "id": "almorus.workspace-apps"
-        }
-      ],
+      "center": [],
       "centerBegin": [
-        {
-          "id": "omarchy.indicators"
-        }
+        { "id": "omarchy.indicators" },
+        { "id": "almorus.workspace-apps" },
       ],
       "centerEnd": [
         {
@@ -24,22 +13,6 @@
             {
               "name": "Vilnius",
               "zone": "Europe/Vilnius"
-            },
-            {
-              "name": "Delhi",
-              "zone": "Asia/Kolkata"
-            },
-            {
-              "name": "Tokyo",
-              "zone": "Asia/Tokyo"
-            },
-            {
-              "name": "Los Angeles",
-              "zone": "America/Los_Angeles"
-            },
-            {
-              "name": "New York",
-              "zone": "America/New_York"
             }
           ],
           "id": "omarchy.elsewhen"
@@ -48,11 +21,14 @@
           "id": "omarchy.weather"
         },
         {
-          "id": "omarchy.microphone"
+          "format": "dddd HH:mm",
+          "formatAlt": "d MMMM 'W'ww yyyy",
+          "id": "omarchy.clock",
+          "verticalFormat": "HH\n—\nmm"
         },
-        {
-          "id": "omarchy.system-update"
-        }
+        { "id": "omarchy.media" },
+        { "id": "omarchy.microphone" },
+        { "id": "omarchy.system-update" }
       ],
       "left": [
         {
@@ -60,12 +36,14 @@
         },
         {
           "id": "omarchy.workspaces"
+        },
+        {
+          "id": "omarchy.active-window"
         }
       ],
       "right": [
-        {
-          "id": "omarchy.tray"
-        },
+        { "id": "omarchy.tray" },
+        { "id": "io.github.tyrichards.tray" },
         {
           "id": "io.github.fabiocuccaro.monitor-manager"
         },
@@ -105,7 +83,8 @@
       "X",
       "YouTube"
     ],
-    "position": "bottom"
+    "position": "bottom",
+    "visibility":"always"
   },
   "idle": {
     "lock": 300,

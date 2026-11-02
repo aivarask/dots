@@ -39,6 +39,7 @@ map gc $lf -remote "send $id cd $XDG_CONFIG_HOME"
 map gd $lf -remote "send $id cd ~/Downloads"
 map of &firefox $fx
 
+cmd open &{{ open "$f" }}
 cmd move-parent &{{
     dironly="setlocal \"$(dirname -- "$PWD" | sed 's/\\/\\\\/g;s/"/\\"/g')\" dironly"
     lf -remote "send $id :updir; $dironly true; $1; $dironly false; open"
