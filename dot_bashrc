@@ -31,7 +31,25 @@ _cycle_command() {
 }
 bind -x '"\ec":_cycle_command'
 
+_tldr_below_command() {
+  local command=$READLINE_LINE
+  [[ -z $command ]] && return
+
+  # Save the current line and cursor; bind -x temporarily runs shell commands.
+  local saved_line=$READLINE_LINE
+  local saved_point=$READLINE_POINT
+
+  printf '\n'
+  tldr -- "$command" 2>/dev/null || tldr "${command%% *}"
+  printf '\n'
+
+  READLINE_LINE=$saved_line
+  READLINE_POINT=$saved_point
+  printf '\n'
+}
+bind -x '"\et":_tldr_below_command'
+
 # alias
-alias lg=lazygit
-alias c=chezmoi
+alias lg=´lazygit´
+alias c=´chezmoi´
 
