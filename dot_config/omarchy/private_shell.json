@@ -2,50 +2,51 @@
   "bar": {
     "background": "opaque",
     "layout": {
-      "center": [],
-      "centerBegin": [
-        { "id": "omarchy.indicators" },
-        { "id": "almorus.workspace-apps" },
-      ],
-      "centerEnd": [
-        {
-          "cities": [
-            {
-              "name": "Vilnius",
-              "zone": "Europe/Vilnius"
-            }
-          ],
-          "id": "omarchy.elsewhen"
-        },
-        {
-          "id": "omarchy.weather"
-        },
-        {
-          "format": "dddd HH:mm",
-          "formatAlt": "d MMMM 'W'ww yyyy",
-          "id": "omarchy.clock",
-          "verticalFormat": "HH\n—\nmm"
-        },
-        { "id": "omarchy.media" },
-        { "id": "omarchy.microphone" },
-        { "id": "omarchy.system-update" }
-      ],
       "left": [
         {
           "id": "omarchy.menu"
         },
         {
-          "id": "omarchy.workspaces"
+          "id": "almorus.workspace-apps"
+        }
+      ],
+      "center": [
+        {
+          "id": "omarchy.clock",
+          "format": "ddd d MMM HH:mm",
+          "formatAlt": "d MMMM 'W'ww yyyy",
+          "verticalFormat": "HH\n—\nmm"
+        }
+      ],
+      "centerBegin": [
+        {
+
+
+
+
+              "id": "omarchy.indicators"
+        }
+      ],
+      "centerEnd": [
+        {
+          "id": "omarchy.elsewhen",
+          "cities": [
+            {
+              "name": "Vilnius",
+              "zone": "Europe/Vilnius"
+            }
+          ]
         },
         {
-          "id": "omarchy.active-window"
+          "id": "omarchy.weather"
+        },
+        {
+          "id": "omarchy.system-update"
         }
       ],
       "right": [
-        { "id": "omarchy.tray" },
-        { "id": "io.github.tyrichards.tray" },
         {
-          "id": "io.github.fabiocuccaro.monitor-manager"
+          "id": "omarchy.tray"
         },
         {
           "id": "omarchy.keyboard-layout"
@@ -68,8 +69,7 @@
         {
           "id": "omarchy.power"
         }
-      ],
-      "tray": []
+      ]
     },
     "position": "top"
   },
@@ -83,8 +83,7 @@
       "X",
       "YouTube"
     ],
-    "position": "bottom",
-    "visibility":"always"
+    "position": "bottom"
   },
   "idle": {
     "lock": 300,
