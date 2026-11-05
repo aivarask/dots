@@ -2,29 +2,17 @@
   "bar": {
     "background": "opaque",
     "layout": {
-      "left": [
-        {
-          "id": "omarchy.menu"
-        },
-        {
-          "id": "almorus.workspace-apps"
-        }
-      ],
       "center": [
         {
-          "id": "omarchy.clock",
-          "format": "ddd d MMM HH:mm",
+          "format": "dddd HH:mm",
           "formatAlt": "d MMMM 'W'ww yyyy",
+          "id": "omarchy.clock",
           "verticalFormat": "HH\n—\nmm"
         }
       ],
       "centerBegin": [
         {
-
-
-
-
-              "id": "omarchy.indicators"
+          "id": "omarchy.indicators"
         }
       ],
       "centerEnd": [
@@ -34,6 +22,22 @@
             {
               "name": "Vilnius",
               "zone": "Europe/Vilnius"
+            },
+            {
+              "name": "Delhi",
+              "zone": "Asia/Kolkata"
+            },
+            {
+              "name": "Tokyo",
+              "zone": "Asia/Tokyo"
+            },
+            {
+              "name": "Los Angeles",
+              "zone": "America/Los_Angeles"
+            },
+            {
+              "name": "New York",
+              "zone": "America/New_York"
             }
           ]
         },
@@ -42,6 +46,14 @@
         },
         {
           "id": "omarchy.system-update"
+        }
+      ],
+      "left": [
+        {
+          "id": "omarchy.menu"
+        },
+        {
+          "id": "omarchy.workspaces"
         }
       ],
       "right": [
